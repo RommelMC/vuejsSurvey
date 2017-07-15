@@ -1,0 +1,23 @@
+<form action="/surveys/process" method='POST' style='border: 1px solid black; padding: 20px; width: 350px; box-sizing: border-box;'>
+    {% csrf_token %}
+    <div>
+        <span>Your Name: </span><input type="text" name='name'>
+    </div>
+    <div>
+        <span>Dojo Location: </span><select name="location" id="location">
+            <option value="San Jose">San Jose</option>
+            <option value="Orange County">Orange Country</option>
+            <option value="Burbank">burbank</option>
+        </select>
+    </div>
+    <div>
+        <span>Favorite Language: </span><select name="lang" id="location">
+            <option value="python">Python</option>
+            <option value="js">Javascript</option>
+            <option value="c">C++</option>
+        </select>
+    </div>
+    <p>Comment (optional):</p>
+    <textarea name="comment" id="comment" cols="47" rows="7" style='display:block;'></textarea>
+    <input type="submit" value="Submit">
+</form>

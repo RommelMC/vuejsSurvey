@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <style>
+        .info{
+            margin-left: 10px;
+        }
+
+        #container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #title{
+            padding: 10px;
+            width: 30%;
+            background-color: yellowgreen;
+            border: 3px solid black;
+        }
+        #info{
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            width: 30%;
+            padding: 10px;
+            border: 3px solid black;
+        }
+        span{
+            display: inline-block;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id='title'>Thanks for submitting this form! You have submitted this form {{request.session.count}} times now.</div>
+        <div id='info'>
+            <p style='font-weight: bold; text-decoration: underline;'>Submitted Information</p>
+            <p class="info"><span>Name: </span>{{request.session.name}}</p>
+            <p class="info"><span>Dojo Location: </span>{{request.session.location}}</p>
+            <p class="info"><span>Favorite Language: </span>{{request.session.lang}}</p>
+            <p class="info"><span>Comment: </span>{{request.session.comment}}</p>
+            <form action="/"><input style='margin-left: 80%;' type="submit" value='Go Back'></form>
+        </div>
+    </div>
+</body>
+</html>

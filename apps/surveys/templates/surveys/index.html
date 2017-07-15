@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey</title>
+    
+    <style>
+        form>div{
+            margin-top: 10px;
+        }
+        
+        span{
+            display: inline-block;
+            width: 170px;
+        }
+    </style>
+    <script src="https://unpkg.com/vue"></script>   
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
+    <!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>    -->
+</head>
+<body>
+    <div id='container'>
+        <p v-html='body'></p>
+        <p>[[ nothing ]]</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#container',
+            data: {
+                body: null,
+                nothing: '<h2>lol</h2>'
+            },
+            methods:{
+                onSubmit: function(){
+                    console.log('as')
+                }
+            },
+            created: function(){
+                var _this=this;
+                axios.get('/home').then(function(res){
+                _this.body=res.data.text;
+                console.log(vm.body)
+                // console.log(this.body)
+                })
+            },
+            delimiters: ['[[',']]']
+
+        })
+    </script>
+</body>
+</html>
